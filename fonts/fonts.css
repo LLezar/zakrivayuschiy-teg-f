@@ -9,14 +9,14 @@
 /* Вариативный шрифт */
 @font-face {
     font-family: 'Inter-Variable';
-    src: url(./Inter-Variable.woff2) format('woff2');
-    src: url(./Inter-Variable.woff2) format('woff2-variations');
-    font-weight: 400 785; 
+    src: url(./Inter-Variable.woff2) format('woff2-variations'),
+    url(./Inter-Variable.woff2) format('woff2');
+    font-weight: 400 785;
 }
 
 @supports (font-variation-settings: normal) {
   @font-face {
     font-family: 'Inter-Variable';
-    src: url('./Inter-Variable.woff2') format('woff2');
+    src: url('./Inter-Variable.woff2') format('woff2-variations');
   }
 }
