@@ -162,7 +162,6 @@
   margin-top: 3px;
   border: 2px solid #000000;
   padding: 10.5px;
-  background-color: transparent;
   background-color: var(--text-color);
   transition: box-shadow 0.3s ease;
 }
@@ -200,7 +199,6 @@
   gap: 8px;
   border: 2px solid #000000;
   padding: 17px 20px;
-  background-color: transparent;
   background-color: var(--text-color);
   transition: box-shadow 0.3s ease;
 }
@@ -209,7 +207,6 @@
   position: relative;
   width: 100%;
   border: 2px solid #000000;
-  background-color: transparent;
   background-color: var(--text-color);
   transition: box-shadow 0.3s ease;
 }
@@ -438,9 +435,9 @@
 .image-filter-opacity {
   filter: opacity(40%);
 }
-/* инвертирует цвета */
-.image-filter-invert {
-  filter: invert(60%);
+/* множественный фильтр*/
+.image-filter-mn {
+  filter: invert(20%) grayscale(100%) blur(2px);
 }
 /* Проверка поддержки text-stroke */
 @supports (text-stroke: 1px rgba(255, 255, 255, 0.8)) {
