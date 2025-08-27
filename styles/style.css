@@ -9,8 +9,465 @@
 ✦ button__text — для обозначения текстового элемента внутри кнопки
 
 */
-
+/* ----Страница---- */
 .page {
+  font-family: var(--font-primary);
   min-inline-size: 320px;
   min-block-size: 100dvb;
+  font-variation-settings: "wght" var(--font-wieght);
+}
+/* ----Шапка---- */
+.header {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: calc(100vh * 1.03);
+  background-image: var(--bg-gradients);
+  background-repeat: repeat;
+  background-size: cover;
+}
+/* Блок логотипа */
+.block-logo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-top: 98px;
+  margin-bottom: var(--margin-bottom-title);
+  background-color: #ffffff;
+}
+/* Заголовок */
+.title {
+  display: block;
+  vertical-align: bottom;
+  font-family: var(--font-accent);
+  font-weight: 400;
+  font-size: 65px;
+  font-style: normal;
+  line-height: 100%;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+/* Текст заголовка */
+.title_text {
+  font-family: var(--font-accent);
+  font-weight: 400;
+  font-size: 23px;
+  font-style: normal;
+  line-height: 100%;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+/* ----Тело сайта---- */
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  margin-top: calc(-50vh + 87px);
+}
+/* Заголовок карточки */
+.card-title {
+  padding: var(--padding-title-card);
+  background-color: #ffffff;
+}
+/* Текст заголовка карточки */
+.card-title-text {
+  vertical-align: middle;
+  font-family: var(--font-primary);
+  font-size: 18px;
+  line-height: 100%;
+  letter-spacing: 0;
+  font-variation-settings: "wght" var(--font-wieght-bold);
+}
+/* Блок картинки */
+.image-block {
+  position: relative;
+}
+/* Надпись на картинке */
+.lable {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  z-index: 2;
+  vertical-align: middle;
+  opacity: 0.5;
+  font-family: var(--font-accent);
+  font-weight: 400;
+  font-size: 14px;
+  font-style: normal;
+  line-height: 100%;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 1); /* для Safari */
+  text-stroke: 1px rgba(255, 255, 255, 1);
+  mix-blend-mode: hard-light;
+}
+/* Картинка в карточке */
+.image {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+/* Блок текста в карточке */
+.card-block-text {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  padding: var(--padding-text-card);
+  font-family: var(--font-primary);
+  font-size: 18px;
+  font-style: normal;
+  line-height: 21px;
+  letter-spacing: 0;
+  font-variation-settings: "wght" var(--font-wieght);
+}
+/* Контейнер с иконкой и кнопкой */
+.button-container {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  padding: var(--padding-button-container);
+}
+/* Кнопка с иконкой */
+.card__icon-button {
+  position: relative;
+  box-sizing: border-box;
+  width: 39px;
+  height: 36px;
+  margin-top: 3px;
+  margin-right: 6px;
+  border: 2px solid transparent;
+  padding: 0;
+  outline: none;
+  background-color: transparent;
+  transition: border-color 0.3s ease;
+}
+/* Иконка */
+.like-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform-origin: center;
+}
+/* Кнопка с надписью рядом с иконкой */
+.card__like-button {
+  position: relative;
+  width: 130px;
+  margin-top: 3px;
+  border: 2px solid #000000;
+  padding: 10.5px;
+  background-color: transparent;
+  background-color: var(--text-color);
+  transition: box-shadow 0.3s ease;
+}
+/* Текст кнопки */
+.button__text {
+  position: relative;
+  z-index: 1;
+  display: block;
+  color: var(--text-color);
+  font-family: var(--font-accent);
+  font-weight: 400;
+  font-size: 14px;
+  font-style: normal;
+  line-height: 90%;
+  letter-spacing: 0;
+  mix-blend-mode: difference;
+}
+/* ---Подвал---- */
+.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding-top: 50px;
+  padding-bottom: 100px;
+}
+/* ----Кнопки---- */
+/* Кнопка в подвале */
+.button-save {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  gap: 8px;
+  border: 2px solid #000000;
+  padding: 17px 20px;
+  background-color: transparent;
+  background-color: var(--text-color);
+  transition: box-shadow 0.3s ease;
+}
+/* Кнопка в диалогом окне */
+.button-ok {
+  position: relative;
+  width: 100%;
+  border: 2px solid #000000;
+  background-color: transparent;
+  background-color: var(--text-color);
+  transition: box-shadow 0.3s ease;
+}
+
+/* ---Вспомогательные классы---- */
+.card-width {
+  width: var(--widgth-card);
+  border: 2px solid black;
+}
+/* ---SVG--- */
+/* Дискета в подвале */
+.svg_floopy {
+  position: relative;
+  width: 21px;
+  height: 21px;
+  fill: var(--text-color);
+  mix-blend-mode: difference;
+}
+/* Дискета в диалоге */
+.svg_floopy-dialog {
+  width: 39px;
+  height: 39px;
+}
+/* ---События при фокусе---- */
+/* Фокус иконки */
+.card__icon-button:focus {
+  border-color: transparent;
+}
+/* Фокус иконки */
+.card__icon-button:focus-visible {
+  border-color: black;
+}
+/* Фокус кнопки рядом с иконкой */
+.card__like-button:focus {
+  box-shadow: 2px 2px 0 black;
+  outline: none;
+}
+/* Фокус кнопки в подвале */
+.button-save:focus {
+  box-shadow: 2px 2px 0 black;
+  outline: none;
+}
+/* Фокус кнопки в даилоге */
+.button-ok:focus {
+  box-shadow: 2px 2px 0 black;
+  outline: none;
+}
+/* ---События при наведении---- */
+/* Псевдолемент для заполнения */
+/* Кнопки в подвале */
+.button-save::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  transition: transform 0.5s ease-in-out;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+/* Кнопки рядом с иконкой */
+.card__like-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  transition: transform 0.5s ease-in-out;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+/* Кнопки в диалоге */
+.button-ok::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  transition: transform 0.5s ease-in-out;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+/* Наведение кнопки в диалоге */
+.button-ok:hover::before {
+  transform: scaleX(1);
+}
+/* Наведение кнопки рядом с иконкой */
+.card__like-button:hover::before {
+  transform: scaleX(1);
+}
+/* Наведение кнопки в подвале */
+.button-save:hover::before {
+  transform: scaleX(1);
+}
+/* ----Диалоговое окно---- */
+/* Открытие диалога */
+.dialog-save[open] {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+}
+/* Затемнение фона */
+.dialog-save::backdrop {
+  background: rgba(0, 0, 0, 0.75);
+}
+/* Тело диалога */
+.dialog-main {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding-bottom: 30px;
+}
+/* Текст диалога */
+.dialog-text {
+  font-family: var(--font-accent);
+  font-weight: 400;
+  font-size: 14px;
+  font-style: normal;
+  line-height: 150%;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+/* Текст кнопки в диалоге */
+.button-ok-text {
+  padding-top: 10.5px;
+  padding-bottom: 10.5px;
+}
+/* ----Анимация иконки---- */
+/* span в SVG картинке сердца */
+/* Контур */
+.contour {
+  transition: fill 0.1s linear;
+}
+/* Тело */
+.main-body {
+  transition: fill 0.3s linear;
+}
+/* Сердцевина */
+.core {
+  transition: fill 0.3s linear 0.03s;
+}
+/* Искры */
+.sparks {
+  opacity: 0;
+}
+/* Наведение (сердцевина) */
+.like-icon:hover .core {
+  fill: black;
+  transition: fill 0.3s linear;
+}
+/* Наведение (тело) */
+.like-icon:hover .main-body {
+  fill: black;
+  transition: fill 0.3s linear 0.05s;
+}
+/* При активации кнопки (сердцевина) */
+.like-icon:active .core {
+  fill: red;
+  transition: fill 0.3s linear;
+}
+/* При активации кнопки (Тело) */
+.like-icon:active .main-body {
+  fill: red;
+  transition: fill 0.3s linear 0.05s;
+}
+/* При клике по иконке (сердцевина) */
+.like-icon.is-liked .core {
+  fill: red;
+  transition: fill 0.3s linear;
+}
+/* При клике по иконке (тело) */
+.like-icon.is-liked .main-body {
+  fill: red;
+  transition: fill 0.3s linear 0.5s;
+}
+/* При клике по иконке (контур) */
+.like-icon.is-liked .contour {
+  fill: red;
+  transition: fill 0.3s linear 0.6s;
+}
+/* При клике по иконке (группа span) */
+.like-icon.is-liked .heart {
+  transform-origin: center;
+  animation: scaleHeart 0.3s ease-in 0.1s forwards;
+}
+/* При клике по иконке (искры) */
+.like-icon.is-liked .sparks {
+  transform-origin: center;
+  animation: sparkle 0.3s ease-in 0.3s forwards;
+}
+/* ----Фильтры для картинок---- */
+/* увеличивает яркость на 90% от исходной */
+.image-filter-brightness {
+  filter: brightness(190%);
+}
+/* делает изображение чёрно-белым */
+.image-filter-grayscale {
+  filter: grayscale(100%);
+}
+ /* уменьшает насыщенность цветов вдвое */
+.image-filter-saturate {
+  filter: saturate(50%);
+}
+/* добавляет эффект старой фотографии на 50% */
+.image-filter-sepia {
+  filter: sepia(50%);
+}
+/* увеличивает контрастность в 27 раз */
+.image-filter-contrast {
+  filter: contrast(270);
+}
+/* создает прозрачность */
+.image-filter-opacity {
+  filter: opacity(40%);
+}
+/* инвертирует цвета */
+.image-filter-invert {
+  filter: invert(60%);
+}
+/* Проверка поддержки text-stroke */
+@supports (text-stroke: 1px rgba(255, 255, 255, 0.8)) {
+  .lable {
+    text-shadow: 1px 0 0 rgba(255, 255, 255, 1);
+  }
+}
+/* Для мобильных устройств */
+@media (width <= 375px) {
+  .header {
+    height: calc(100vh * 1.09);
+  }
+
+  .title {
+    font-size: 49px;
+  }
+
+  .title_text {
+    font-size: 14px;
+  }
+
+  .button-save {
+    flex-direction: column;
+  }
+
+  .svg_floopy {
+    width: 28px;
+    height: 28px;
+  }
 }
