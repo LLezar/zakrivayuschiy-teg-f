@@ -15,12 +15,19 @@
   background-image: var(--bg-gradients);
   background-repeat: repeat;
   background-size: cover;
-  background-attachment: scroll;
+  background-attachment: fixed;
   min-inline-size: 320px;
   min-block-size: 100dvb;
   font-variation-settings: "wght" var(--font-wieght);
 }
-
+/* ---Класс для щирины блоков---- */
+.card-width {
+  box-sizing: border-box;
+  margin-right: clamp(0px, calc((100vw - 375px) * 0.37037), 370px);
+  margin-left: clamp(0px, calc((100vw - 375px) * 0.37037), 370px);
+  border: 2px solid black;
+  background-color: #ffffff;
+}
 /* ----Шапка---- */
 .header {
   display: flex;
@@ -31,8 +38,8 @@
   box-sizing: border-box;
   margin-top: 100px;
   margin-bottom: 96px;
-  padding-right: clamp(110px, 122.5px, 140px);
-  padding-left: clamp(110px, 122.5px, 140px);
+  /* padding-right: clamp(110px, 122.5px, 140px);
+  padding-left: clamp(110px, 122.5px, 140px); */
   padding-top: 130px;
   padding-bottom: 130px;
 }
@@ -42,7 +49,8 @@
   vertical-align: bottom;
   font-family: var(--font-accent), sans-serif;
   font-weight: 400;
-  font-size: 65px;
+  /* font-size: 65px; */
+  font-size: clamp(3.0625rem, 2.7768rem + 1.4286vw, 4.0625rem);
   font-style: normal;
   line-height: 100%;
   letter-spacing: 0;
@@ -52,7 +60,9 @@
 .title_text {
   font-family: var(--font-accent), sans-serif;
   font-weight: 400;
-  font-size: 23px;
+  /* font-size: 23px; */
+
+  font-size: clamp(0.875rem, 0.7143rem + 0.8036vw, 1.4375rem);
   font-style: normal;
   line-height: 100%;
   letter-spacing: 0;
@@ -137,6 +147,7 @@
 .card__icon-button {
   position: relative;
   box-sizing: border-box;
+  height: 38px;
   margin-right: 6px;
   border: 2px solid transparent;
   padding: 0;
@@ -154,14 +165,9 @@
 }
 /* Кнопка с надписью рядом с иконкой */
 .card__like-button {
-  position: relative;
-  box-sizing: border-box;
   width: 130px;
   height: 38px;
-  border: 2px solid #000000;
   padding: 0;
-  background-color: var(--text-color);
-  transition: box-shadow 0.3s ease;
 }
 /* Текст кнопки */
 .button__text {
@@ -178,39 +184,30 @@
 }
 /* ---Подвал---- */
 /* ----Кнопки---- */
-/* Кнопка в подвале */
-.button-save {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-  gap: 8px;
-  box-sizing: border-box;
-  margin-bottom: 100px;
-  border: 2px solid #000000;
-  padding: 15px 20px;
-  background-color: var(--text-color);
-  transition: box-shadow 0.3s ease;
-}
-/* Кнопка в диалогом окне */
-.button-ok {
+.button {
   position: relative;
   box-sizing: border-box;
-  width: 100%;
   border: 2px solid #000000;
   background-color: var(--text-color);
   transition: box-shadow 0.3s ease;
 }
 
-/* ---Вспомогательные классы---- */
-.card-width {
-  box-sizing: border-box;
-  margin-right: clamp(340px, 370px, 500px);
-  margin-left: clamp(340px, 370px, 500px);
-  border: 2px solid black;
-  background-color: #ffffff;
+/* Кнопка в подвале */
+.button-save {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  gap: 8px;
+  margin-bottom: 100px;
+  padding: 15px 20px;
 }
+/* Кнопка в диалогом окне */
+.button-ok {
+  width: 100%;
+}
+
+/* ---Вспомогательные классы---- */
 /* ---SVG--- */
 /* Дискета в подвале */
 .svg_floopy {
@@ -234,25 +231,15 @@
 .card__icon-button:focus-visible {
   border-color: black;
 }
-/* Фокус кнопки рядом с иконкой */
-.card__like-button:focus {
-  box-shadow: 2px 2px 0 black;
-  outline: none;
-}
-/* Фокус кнопки в подвале */
-.button-save:focus {
-  box-shadow: 2px 2px 0 black;
-  outline: none;
-}
-/* Фокус кнопки в даилоге */
-.button-ok:focus {
+/* Фокус кнопок (Like, Сохранить на память, Ок)  */
+.button:focus {
   box-shadow: 2px 2px 0 black;
   outline: none;
 }
 /* ---События при наведении---- */
 /* Псевдолемент для заполнения */
-/* Кнопки в подвале */
-.button-save::before {
+/* Кнопка (Like, Сохранить на память, Ок) */
+.button::before {
   content: "";
   position: absolute;
   top: 0;
@@ -265,55 +252,24 @@
   transform: scaleX(0);
   transform-origin: left;
 }
-/* Кнопки рядом с иконкой */
-.card__like-button::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 0;
-  width: 100%;
-  height: 100%;
-  background: black;
-  transition: transform 0.5s ease-in-out;
-  transform: scaleX(0);
-  transform-origin: left;
-}
-/* Кнопки в диалоге */
-.button-ok::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 0;
-  width: 100%;
-  height: 100%;
-  background: black;
-  transition: transform 0.5s ease-in-out;
-  transform: scaleX(0);
-  transform-origin: left;
-}
-/* Наведение кнопки в диалоге */
-.button-ok:hover::before {
-  transform: scaleX(1);
-}
-/* Наведение кнопки рядом с иконкой */
-.card__like-button:hover::before {
-  transform: scaleX(1);
-}
-/* Наведение кнопки в подвале */
-.button-save:hover::before {
+
+/* Наведение (Like, Сохранить на память, Ок)*/
+.button:hover::before {
   transform: scaleX(1);
 }
 /* ----Диалоговое окно---- */
+.dialog-save {
+  box-sizing: border-box;
+  border: 2px solid #000000;
+  padding: 26px; /* 30 минус 2 бордера по 2 px*/
+}
+
 /* Открытие диалога */
 .dialog-save[open] {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  margin: 384.5px 543.5px;
-  padding: 30px;
+  box-sizing: border-box;
 }
 /* Затемнение фона */
 .dialog-save::backdrop {
@@ -324,7 +280,6 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
   gap: 20px;
   padding-bottom: 30px;
 }
@@ -454,15 +409,6 @@
     padding-left: 16px;
   }
 
-  .title {
-    font-size: 49px;
-  }
-
-  .title_text {
-    font-size: 14px;
-    line-height: 100%;
-  }
-
   .button-save {
     flex-direction: column;
   }
@@ -486,16 +432,7 @@
     font-variation-settings: "wght" var(--font-wieght-bold);
   }
 
-  .dialog-save[open] {
-    margin: 236px 17px;
-    padding: 30px;
-  }
-
-  .card-width {
-    box-sizing: border-box;
-    margin-right: 0;
-    margin-left: 0;
-    border: 2px solid black;
-    background-color: #ffffff;
+  .dialog-save {
+    padding: 26px 36px; /* минус 2 бордера по 2 px*/
   }
 }
